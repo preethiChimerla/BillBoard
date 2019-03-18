@@ -46,7 +46,7 @@
 		215D754F223B6769001A40C9 = {
 			isa = PBXGroup;
 			children = (
-				215D755A223B676A001A40C9 /* BillBoard */,
+				215D755A223B676A001A40C9 /* Billboard */,
 				215D7559223B676A001A40C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,7 +59,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		215D755A223B676A001A40C9 /* BillBoard */ = {
+		215D755A223B676A001A40C9 /* Billboard */ = {
 			isa = PBXGroup;
 			children = (
 				215D756D223B67A5001A40C9 /* Repository */,
@@ -70,7 +70,7 @@
 				215D7562223B676A001A40C9 /* Assets.xcassets */,
 				215D7567223B676A001A40C9 /* Info.plist */,
 			);
-			path = BillBoard;
+			path = Billboard;
 			sourceTree = "<group>";
 		};
 		215D756D223B67A5001A40C9 /* Repository */ = {
@@ -118,6 +118,7 @@
 				215D7554223B676A001A40C9 /* Sources */,
 				215D7555223B676A001A40C9 /* Frameworks */,
 				215D7556223B676A001A40C9 /* Resources */,
+				216D9E7A22403C5100419F3B /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -143,7 +144,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 215D7553223B6769001A40C9 /* Build configuration list for PBXProject "BillBoard" */;
+			buildConfigurationList = 215D7553223B6769001A40C9 /* Build configuration list for PBXProject "Billboard" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -171,6 +172,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		216D9E7A22403C5100419F3B /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		215D7554223B676A001A40C9 /* Sources */ = {
@@ -319,7 +341,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.PreethiChimerla.com.BillBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PreethiChimerla.com.Billboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,7 +360,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.PreethiChimerla.com.BillBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PreethiChimerla.com.Billboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		215D7553223B6769001A40C9 /* Build configuration list for PBXProject "BillBoard" */ = {
+		215D7553223B6769001A40C9 /* Build configuration list for PBXProject "Billboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				215D7568223B676A001A40C9 /* Debug */,
