@@ -8,24 +8,16 @@
 
 import Foundation
 
-struct Album {
-    private(set) public var albumName: String
-    private(set) public var artistName: String
-    private(set) public var thumbnailImg: String
-    private(set) public var genre: String
-    private(set) public var releaseDate: String
-    private(set) public var copyright: String
-    private(set) public var albumImage: String
-    private(set) public var artistUrl: String
-    init(albumName: String,artistName:String,thumbnailImg: String,genre: String,releaseDate: String,
-         copyright: String,albumImage: String,artistUrl: String) {
-        self.albumName = albumName
-        self.artistName = artistName
-        self.thumbnailImg = thumbnailImg
-        self.genre = genre
-        self.releaseDate = releaseDate
-        self.copyright = copyright
-        self.albumImage = albumImage
-        self.artistUrl = artistUrl
-    }
+struct Album: Codable {
+    var name: String
+    var artistName: String
+    var artworkUrl100: String
+    var genres: [Genre]
+    var releaseDate: String
+    var copyright: String
+    var artistUrl: String
+}
+
+struct Genre: Codable {
+    var name: String
 }

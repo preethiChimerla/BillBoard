@@ -34,45 +34,14 @@ class AlbumsRepository {
                 return
             }
             do {
-                guard let dictionary = try JSONSerialization.jsonObject(with: data, options:
-                    JSONSerialization.ReadingOptions.mutableContainers) as? [String:AnyObject] else {
-                    print("Couldn't parse data")
-                    return
-                }
-                guard let dataDictionary = dictionary["feed"] as? [String:AnyObject] else {
-                    return
-                }
-                guard let results = dataDictionary["results"] as? [[String:AnyObject]] else {
-                    return
-                }
-                let albums = self.albumMap(results)
+                let decoder = JSONDecoder()
+                let rssFeed = try decoder.decode(RSSFeed.self, from: data)
+                let albums = rssFeed.feed.results
                 completionHandler(albums)
             } catch (let error) {
                 print("Error: \(error.localizedDescription)")
             }
         }
         dataTask.resume()
-    }
-    private func albumMap(_ results: [[String:AnyObject]]) -> [Album] {
-        let albums = results.compactMap({ (dataEntry) -> Album in
-            let albumName = dataEntry["name"] as? String
-            let artistName = dataEntry["artistName"] as? String
-            let thumbnailImg = dataEntry["artworkUrl100"] as? String
-            let genres = dataEntry["genres"] as? NSArray
-            let name = genres?[0] as? NSDictionary
-            let gname = name?.object(forKey: "name")
-            let genre = gname as? String
-            let releaseDate = dataEntry["releaseDate"] as? String
-            let copyright = dataEntry["copyright"] as? String
-            var albumImage = dataEntry["artworkUrl100"] as? String
-            albumImage = albumImage?.replacingOccurrences(of: "200x200", with: "600x600")
-            let artistUrl = dataEntry["artistUrl"] as? String
-            let album = Album(albumName: albumName ?? "", artistName: artistName ?? "",
-                              thumbnailImg: thumbnailImg ?? "", genre: genre ?? "",
-                              releaseDate: releaseDate ?? "", copyright: copyright ?? "",
-                              albumImage: albumImage ?? "", artistUrl: artistUrl ?? "")
-            return album
-        })
-        return albums
     }
 }
